@@ -136,7 +136,7 @@ if pol_inter !=[]:
        pdf.ln(25)
        pdf.cell(0, 5,"                                                                                 Signature")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
+       pdf.image("Moahmed-Ghalem-signature.png", x=100, w=20, h=15)
        pdf.output(nru)
 
 if pol_inter == []:
@@ -174,7 +174,7 @@ if pol_inter == []:
        pdf.ln(25)
        pdf.cell(0, 5,"                                                                                 Signature")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
+       pdf.image("Moahmed-Ghalem-signature.png", x=100, w=20, h=15)
        pdf.output(nru)
 
 # st.download_button(
