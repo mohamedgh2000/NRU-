@@ -95,7 +95,7 @@ plt.figure()
 
 fig=plt.plot(xs,ys) 
 #fig = io.BytesIO()
-plt.savefig('C:\\Users\\Dell\\Desktop\\testnru\\map.png')
+plt.savefig('map.png')
 if pol_inter !=[]:
        pdf=FPDF('P','mm','A4')
        pdf.add_page()
