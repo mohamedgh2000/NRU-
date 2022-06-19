@@ -5,21 +5,37 @@ from sympy import Point, Polygon
 from fpdf import FPDF
 import matplotlib.pyplot as plt
 import time
+from io import StringIO
 
 def_val='-5.5222321,33.8290698/-5.5175972,33.8289985/-5.5171823,33.8219555/-5.5242348,33.8200242/-5.5222178,33.829252'
 def_path='C:\\Users\\Dell\\Desktop\\testnru'
 with st.form("my_form"):
-    st.write("Inside the form")
+     
     Date_NRU = st.date_input('date nru', datetime.date(2022, 6, 1))
     Nom_du_demandeur= st.text_input('Nom_du_demandeur', '')
     Numero_du_demandeur= st.text_input('Numero_du_demandeur', '')
     Cordinates_list= st.text_input('Cordinates_list as tuples', def_val)
+    Cordinates_File= st.file_uploader("upload you Cordinates ile")
 
     
     path_bd= st.text_input('path_bd', 'C:\\Users\\Dell\\Desktop\\testnru')
     nru= st.text_input('nru', 'C:\\Users\\Dell\\Desktop\\testnru\\rapportNRU.pdf')
 
     submitted = st.form_submit_button("Submit")
+x=""
+if Cordinates_File is not None:
+     # To read file as string:
+     bytes_data = Cordinates_File.getvalue()
+     
+
+     # To convert to a string based IO:
+     stringio = StringIO(Cordinates_File.getvalue().decode("utf-8"))
+          # To read file as string:
+     string_data = stringio.read()
+     x=string_data
+     
+if Cordinates_list == "":
+	Cordinates_list=x
 
 l=Cordinates_list.split('/')
 
@@ -83,7 +99,7 @@ plt.savefig('C:\\Users\\Dell\\Desktop\\testnru\\map.png')
 if pol_inter !=[]:
        pdf=FPDF('P','mm','A4')
        pdf.add_page()
-#       pdf.image(os.path.join(path_bd,"logo_ehtp.png"),45,17,130,32)
+       pdf.image(os.path.join(path_bd,"logo_ehtp.png"),45,17,130,32)
        pdf.set_font('arial','', 12)
        pdf.set_text_color(170,0,0)
        var= "                                                                                                             "+str(Date_NRU)
@@ -114,19 +130,19 @@ if pol_inter !=[]:
        pdf.ln(10)
        pdf.cell(0, 5,"            De meme, vous trouverez ci-joint une image de votre teritoire ")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"map.png"),w=160, h=120)
+       pdf.image(os.path.join(path_bd,"map.png"),w=160, h=120)
        pdf.ln(5)
        pdf.cell(0, 5,"           Veuillez agreer, M/Mme, l'expression de mes salutations distinguees.")
        pdf.ln(25)
        pdf.cell(0, 5,"                                                                                 Signature")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
+       pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
        pdf.output(nru)
 
 if pol_inter == []:
        pdf=FPDF('P','mm','A4')
        pdf.add_page()
-      # pdf.image(os.path.join(path_bd,"logo_ehtp.png"),45,17,130,32)
+       pdf.image(os.path.join(path_bd,"logo_ehtp.png"),45,17,130,32)
        pdf.set_font('arial','', 12)
        pdf.set_text_color(170,0,0)
        var= "                                                                                                             "+str(Date_NRU)
@@ -152,18 +168,42 @@ if pol_inter == []:
        pdf.ln(10)
        pdf.cell(0, 5,"            De meme, vous trouverez ci-joint une image de votre teritoire ")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"map.png"),w=160, h=120)
+       pdf.image(os.path.join(path_bd,"map.png"),w=160, h=120)
        pdf.ln(5)
        pdf.cell(0, 5,"           Veuillez agreer, M/Mme, lexpression de mes salutations distinguees.")
        pdf.ln(25)
        pdf.cell(0, 5,"                                                                                 Signature")
        pdf.ln(5)
-       #pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
+       pdf.image(os.path.join(path_bd,"Moahmed-Ghalem-signature.png"), x=100, w=20, h=15)
        pdf.output(nru)
 
+# st.download_button(
+#      label="Download PDF",
+#      data=pdf,
+#      file_name='nru.pdf',
+#      mime='text/pdf',
+#  )
 
-time.sleep(1)
-os.system("C:\\Users\\Dell\\Desktop\\testnru\\rapportNRU.pdf")
+with open(nru, "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+col1, col2, col3 , col4, col5 = st.columns(5)
+
+with col1:
+    pass
+with col2:
+    pass
+with col4:
+    pass
+with col5:
+    pass
+with col3 :
+    
+    st.download_button(label="Telecharger Votre Nru",
+                    data=PDFbyte,
+                    file_name="rapportNRU.pdf",
+                    mime='application/octet-stream')
+
+
 
 
 
