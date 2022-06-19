@@ -93,8 +93,8 @@ xs, ys = zip(*coord) #create lists of x and y values
 
 plt.figure()
 
-plt.plot(xs,ys) 
-
+fig=plt.plot(xs,ys) 
+fig = io.BytesIO()
 plt.savefig('C:\\Users\\Dell\\Desktop\\testnru\\map.png')
 if pol_inter !=[]:
        pdf=FPDF('P','mm','A4')
@@ -130,7 +130,7 @@ if pol_inter !=[]:
        pdf.ln(10)
        pdf.cell(0, 5,"            De meme, vous trouverez ci-joint une image de votre teritoire ")
        pdf.ln(5)
-       pdf.image(plt,w=160, h=120)
+       pdf.image(fig,w=160, h=120)
        pdf.ln(5)
        pdf.cell(0, 5,"           Veuillez agreer, M/Mme, l'expression de mes salutations distinguees.")
        pdf.ln(25)
@@ -168,7 +168,7 @@ if pol_inter == []:
        pdf.ln(10)
        pdf.cell(0, 5,"            De meme, vous trouverez ci-joint une image de votre teritoire ")
        pdf.ln(5)
-       pdf.image(plt,w=160, h=120)
+       pdf.image(fig,w=160, h=120)
        pdf.ln(5)
        pdf.cell(0, 5,"           Veuillez agreer, M/Mme, lexpression de mes salutations distinguees.")
        pdf.ln(25)
