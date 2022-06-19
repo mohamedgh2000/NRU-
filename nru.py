@@ -94,7 +94,7 @@ xs, ys = zip(*coord) #create lists of x and y values
 plt.figure()
 
 fig=plt.plot(xs,ys) 
-fig = io.BytesIO()
+#fig = io.BytesIO()
 plt.savefig('C:\\Users\\Dell\\Desktop\\testnru\\map.png')
 if pol_inter !=[]:
        pdf=FPDF('P','mm','A4')
