@@ -45,11 +45,14 @@ for i in l:
 for i in range(len(ls)):
 	for j in range(len(ls[i])):
 		ls[i][j]=float(ls[i][j])
-
+		
+listply=[]
 j=0
 for i in ls:
     j=j+1
     globals()[f"P{j}"] = Point(i)
+    listply.append(Point(i))
+lnn=tuple(listply)
 
 
 
@@ -65,7 +68,7 @@ p43, p44, p45, p46, p47, p48, p49, p50, p51, p52, p53, p54, p55, p56, p57, p58, 
 #test
 p10,p11,p12 = map(Point, [(1,1),(2,2),(3,3)])
 
-poly1 = Polygon(P1,P2,P3,P4)
+poly1 = Polygon(*lnn)
 poly2 = Polygon(p5, p6, p7, p8, p9)
 poly3 = Polygon(p10,p11,p12)
 poly4 = Polygon(p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41)
