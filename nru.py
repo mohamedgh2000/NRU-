@@ -6,9 +6,13 @@ from fpdf import FPDF
 import matplotlib.pyplot as plt
 import time
 from io import StringIO
+from PIL import Image
 
 def_val='-5.5222321,33.8290698/-5.5175972,33.8289985/-5.5171823,33.8219555/-5.5242348,33.8200242/-5.5222178,33.829252'
 def_path='C:\\Users\\Dell\\Desktop\\testnru'
+image = Image.open('image.png')
+
+st.image(image, caption='')
 with st.form("my_form"):
      
     Date_NRU = st.date_input('date nru', datetime.date(2022, 6, 1))
