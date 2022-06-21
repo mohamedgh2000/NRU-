@@ -22,10 +22,13 @@ with st.form("my_form"):
     Cordinates_File= st.file_uploader("upload you Cordinates ile")
 
     
-    path_bd= st.text_input('path_bd', 'C:\\Users\\Dell\\Desktop\\testnru')
-    nru= st.text_input('nru', 'C:\\Users\\Dell\\Desktop\\testnru\\rapportNRU.pdf')
+    #path_bd= st.text_input('path_bd', 'C:\\Users\\Dell\\Desktop\\testnru')
+    #nru= st.text_input('nru', 'C:\\Users\\Dell\\Desktop\\testnru\\rapportNRU.pdf')
 
     submitted = st.form_submit_button("Submit")
+path_bd= 'C:\\Users\\Dell\\Desktop\\testnru'
+nru= 'C:\\Users\\Dell\\Desktop\\testnru\\rapportNRU.pdf'
+
 x=""
 if Cordinates_File is not None:
      # To read file as string:
