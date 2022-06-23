@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import datetime
-from sympy import Point, Polygon
+from sympy import Point, Polygon, Line
 from fpdf import FPDF
 import matplotlib.pyplot as plt
 import time
