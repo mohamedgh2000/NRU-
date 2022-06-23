@@ -18,7 +18,7 @@ with st.form("my_form"):
     Date_NRU = st.date_input('date nru', datetime.date(2022, 6, 1))
     Nom_du_demandeur= st.text_input('Nom_du_demandeur', '')
     Numero_du_demandeur= st.text_input('Numero_du_demandeur', '')
-    Cordinates_list= st.text_input('Cordinates_list as tuples', 'def_val')
+    Cordinates_list= st.text_input('Cordinates_list as tuples', def_val)
     Cordinates_File= st.file_uploader("upload you Cordinates ile")
 
     
