@@ -268,7 +268,7 @@ if pol_inter == []  and pol_inside ==[] :
 #        # pdf.ln(5)
 #        # pdf.cell(0, 5,"           waloo")
        pdf.ln(5)
-       pdf.cell(0, 5,"          s'intersecte avec rien ")
+       pdf.cell(0, 5,"          Votre Teritoire n'intersecte avec aucune Zone ")
        pdf.ln(5)
        pdf.ln(10)
        pdf.cell(0, 5,"            De meme, vous trouverez ci-joint une image de votre teritoire ")
